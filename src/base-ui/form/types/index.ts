@@ -18,6 +18,7 @@ export interface myFormItem {
   isHidden?: boolean
 }
 export interface myFormType {
+  title?:string
   formItems: myFormItem[]
   labelWidth?: string
   //ele容器的布局配置 响应式布局

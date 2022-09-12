@@ -1,6 +1,13 @@
 <template>
   <div class="dashboard">
     <el-row :gutter="10">
+      <template v-for="item in topPanelData" :key="item.title">
+        <el-col :md="12" :lg="6" :xl="6">
+          <statistical-panel :panelData="item" />
+        </el-col>
+      </template>
+    </el-row>
+    <el-row :gutter="10">
       <el-col :span="7">
         <my-card title="分类商品数量(饼图)">
           <pie-echart :pieData="categoryGoodsCount"></pie-echart>
@@ -43,10 +50,13 @@ import {
   MapEchart
 } from '@/components/page-echarts'
 import { useAnalysis } from '@/store/useMain'
+import StatisticalPanel from '@/components/statistical-panel'
 import myCard from '@/base-ui/card'
 const Analysis = useAnalysis()
 Analysis.getDashboardDataAction()
 // 获取数据
+// 获取顶部PanelData
+const topPanelData = computed(() => Analysis.topPanelDatas)
 const categoryGoodsCount = computed(() => {
   return Analysis.categoryGoodsCount.map((item: any) => {
     return { name: item.name, value: item.goodsCount }
@@ -79,4 +89,12 @@ const addressGoodsSale = computed(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped lang="less">
+.dashboard {
+  background-color: #f5f5f5;
+
+  .row {
+    margin-top: 20px;
+  }
+}
+</style>

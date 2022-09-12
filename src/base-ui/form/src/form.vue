@@ -61,7 +61,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent } from 'vue'
+import { useMain } from '@/store/useMain'
 import type { PropType } from 'vue'
 import type { myFormItem } from '../types'
 export default defineComponent({
@@ -105,6 +106,20 @@ export default defineComponent({
     //     deep: true
     //   }
     // )
+
+    // const Main = useMain()
+    // console.log(props.modelValue)
+    // const selectValue = computed({
+    //   get: () => {
+    //     const entireRole = Main.entireRole
+    //     const entireDepartment = Main,
+    //       entireDepartment
+    //     const ans = {}
+    //     ans = entireRole.Map((item: any) => {
+    //       return { label: item.name, value: item.id }
+    //     })
+    //   }
+    // })
     const handleValueChange = (value: any, field: string) => {
       emit('update:modelValue', { ...props.modelValue, [field]: value })
     }

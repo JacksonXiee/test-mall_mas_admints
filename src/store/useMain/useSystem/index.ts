@@ -16,7 +16,12 @@ export const useSystem = defineStore('useSystem', {
       goodsCount: 0,
       menuList: [] as any[],
       menuCount: 0,
-      formData: {} as any
+      formData: {} as any,
+      departmentCount: 0,
+      departmentList: [] as any[],
+      categoryCount: 0,
+      categoryList: []as any[],
+
     }
   },
   getters: {

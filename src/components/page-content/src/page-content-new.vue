@@ -81,6 +81,7 @@ const props = defineProps({
     required: true
   }
 })
+
 const emit = defineEmits(['newBtnClick', 'editBtnClick'])
 const isCreate = usePermission(props.pageName, 'create')
 const isUpdate = usePermission(props.pageName, 'update')
@@ -106,20 +107,22 @@ const getPageData = (queryInfo: any = {}) => {
 }
 getPageData()
 //3.回调方法
+//删除
 const handleDeleteClick = (item: any) => {
   System.deletePageDataAction({
     pageName: props.pageName,
     id: item.id
   })
 }
-
+//新建
 const handleNewClick = () => {
   emit('newBtnClick')
 }
+//编辑
 const handleEditClick = (item: any) => {
   emit('editBtnClick', item)
 }
-//从vuex中获取数据
+//从pinia中获取数据
 
 const dataList = computed(() => System.pageListData(props.pageName))
 const dataCount = computed(() => System.pageListCount(props.pageName))

@@ -16,6 +16,7 @@
     "@element-plus/icons-vue": "^2.0.9",
     "axios": "^0.27.2",
     "coderwhy": "^1.1.4",
+    "countup.js": "^2.3.2",
     "dayjs": "^1.11.5",
     "echarts": "^5.3.3",
     "element-plus": "^2.2.14",
@@ -24,7 +25,8 @@
     "pinia": "^2.0.20",
     "unplugin-icons": "^0.14.8",
     "vue": "^3.2.37",
-    "vue-router": "^4.0.13"
+    "vue-router": "^4.0.13",
+    "wangeditor": "^4.7.15"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",

@@ -1,5 +1,8 @@
 import { defineStore } from 'pinia'
 import { getPageListData} from '@/service/main/system/system'
+
+export * from './useSystem'
+export * from './useAnalysis/useAnalysis'
 export const useMain = defineStore('useMain', {
   state: () => {
     return {
@@ -34,5 +37,3 @@ export const useMain = defineStore('useMain', {
 
 
 
-export * from './useSystem'
-export * from './useAnalysis/useAnalysis'

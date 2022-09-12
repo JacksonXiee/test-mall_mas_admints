@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 
 import {
+  getAmountList,
   getCategoryGoodsCount,
   getCategoryGoodsSale,
   getCategoryGoodsFavor,
@@ -9,6 +10,7 @@ import {
 export const useAnalysis = defineStore('useAnalysis', {
   state:()=>{
     return {
+      topPanelDatas: [],
       categoryGoodsCount: []as any,
       categoryGoodsSale: []as any,
       categoryGoodsFavor: []as any,
@@ -17,6 +19,9 @@ export const useAnalysis = defineStore('useAnalysis', {
   },
   actions:{
     async getDashboardDataAction() {
+      const resultTopPanelDatas = await getAmountList()
+      this.topPanelDatas = resultTopPanelDatas.data
+
       const categoryCountResult = await getCategoryGoodsCount()
       this.categoryGoodsCount=categoryCountResult.data
 
